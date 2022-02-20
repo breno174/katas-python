@@ -1,3 +1,6 @@
+from pprint import pprint
+
+
 print('Estrutura sequencial\n')
 
 # print('\nexercicio 1')
@@ -204,6 +207,7 @@ def deal_weigth_womans_mans() -> list[float]:
 
 # deal_weigth_womans_mans()
 
+# print('\nexercicio 14')
 def fish_weigth(peso: float) -> str:
     """Algoritmo que recebe um peso de peixes, em kilogramas, e calcula o excesso se for maior que 50 kilos. Para cada kilo excedente deve-se pagar uma multa de R$ 4,00/kg.
     O algoritmo retorna uma string avisando se o pescador pagara multa ou o peso não atingiu os 50 kilos e não precisar pagar multa.
@@ -214,4 +218,24 @@ def fish_weigth(peso: float) -> str:
     Returns:
         str: resposta para o pescador se deve pagar e quanto por cada kilo de peixe excedente a 50 kilos
     """
-    
+    if peso <= 50:
+        return 'sem excesso de peso'
+    else:
+        excesso = peso - 50
+        multa = round(4*excesso, 2)
+        return 'Foram {} kg, o pescador deve pagar uma multa de R$ {}.'.format(round(excesso, 3), multa)
+
+# pprint(fish_weigth(73.155))
+
+# print('\nexercicio 15')
+def salario_liquido():
+    reais_hora = int(input('quanto voce ganha por hora: '))
+    horas_trab = int(input('horas trabalhadas por mês: '))
+    salario_bruto = reais_hora*horas_trab
+    imptRenda = (11*salario_bruto)/100
+    inss = (8*salario_bruto)/100
+    sindicato = (5*salario_bruto)/100
+    liquido = round(salario_bruto - inss - imptRenda - sindicato, 2)
+    print("salario bruto: {} \nimposto de renda:{} \ninss: {} \nsindicato: {} \nsalario liquido: {}".format(salario_bruto, imptRenda, inss, sindicato, liquido))
+
+salario_liquido()
